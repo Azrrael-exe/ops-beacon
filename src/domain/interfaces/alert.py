@@ -1,8 +1,7 @@
 from abc import ABC, abstractmethod
-
-from ..entities.event import Event
+from src.domain.entities.event import Event
 
 class IAlertService(ABC):
     @abstractmethod
-    def alert(self, event: Event) -> None:
+    def alert(self, events: list[Event]) -> None:
         pass
