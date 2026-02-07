@@ -1,0 +1,44 @@
+[project]
+name = "ops-beacon"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "ipykernel>=7.2.0",
+    "python-dotenv>=1.2.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.4",
+    "pytest-cov>=6.0.0",
+]
+
+[tool.pytest.ini_options]
+# Test discovery patterns
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+
+# Add src to Python path for imports
+pythonpath = ["src"]
+
+# Output options
+addopts = [
+    "-v",
+    "--strict-markers",
+    "--tb=short",
+    "--color=yes",
+]
+
+# Test coverage (when using pytest-cov)
+# Uncomment to enable coverage reporting
+# addopts = ["-v", "--cov=src/domain", "--cov-report=term-missing"]
+
+# Markers for categorizing tests
+markers = [
+    "unit: Unit tests for individual components",
+    "integration: Integration tests across components",
+    "slow: Tests that take significant time to run",
+]
